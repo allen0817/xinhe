@@ -1,0 +1,27 @@
+<%- include common/header %>
+
+
+<div class="pape-title">
+    <h1 class="container">友情鏈接</h1>
+</div>
+<!--/pape-title-->
+<div class="container">
+    <div class="links row">
+
+    	<% data.forEach(function(vo){  %>
+    		<div class="item col-md-3">
+            <a href="<%= vo.link %>"  ><img src="<%= vo.over %>" alt="" class="img-responsive"></a>
+        </div>
+    	<%	}); %>
+
+        
+        
+
+
+
+
+    </div>
+    <!--/brand-->
+</div>
+<!--/container-->
+<%- include common/footer %>

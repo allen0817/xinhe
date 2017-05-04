@@ -1,0 +1,32 @@
+<%- include common/header %>
+
+<div class="pape-title">
+    <h1 class="container">品牌專區</h1>
+</div>
+<!--/pape-title-->
+<div class="container">
+    <div class="list-category category">
+        <div class="row">
+
+        <% brand.forEach(function(vo){ %>
+        	<div class="col-md-6 item">
+                <a href="#">
+                    <figure class="useThumb"><img src="<%= vo.over %>" alt="" class="img-responsive"></figure>
+                    <div class="con">
+                        <!-- <div class="brand-logo"><img src="upload/home_09.png" alt="" class="img-responsive"></div> -->
+                        <div class="btn-area"><span class="btn btn-white">瀏覽該品牌商品</span></div>
+                    </div>
+                </a>
+            </div>
+
+    	<% }); %>
+
+        </div>
+    </div>
+    <!--/list-category-->
+</div>
+<!--/container-->
+
+
+<%- include common/footer %>
+

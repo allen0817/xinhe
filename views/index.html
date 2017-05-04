@@ -1,0 +1,114 @@
+<%- include common/header %>
+<div class="feature" style="">
+    <div class="container">
+        <div class="box alpha-black">
+            <div class="home-video">
+                <a href="javascript:void(0)">
+                    <figure class="useThumb"><img src="upload/home_01.jpg" alt=""></figure>
+                    <div class="popup">
+                        <span>《十年，傾情為你》宣傳視頻</span>
+                    </div>
+                </a>
+            </div>
+            <!--/home-video-->
+            <div class="home-week">
+                <h3>本週力荐</h3>
+                <a href="javascript:void(0)">
+                    <figure class="useThumb"><img src="upload/home_02.jpg" alt=""></figure>
+                    <div class="title alpha-gold">維氏瑞士軍刀腕表</div>
+                </a>
+            </div>
+            <!--/home-week-->
+        </div>
+    </div>
+</div>
+<!--/feature-->
+<div class="home-category list-category container">
+    <div class="row">
+        <div class="col-md-6 item">
+            <a href="product.html">
+                <figure class="useThumb"><img src="upload/home_05.jpg" alt="" class="img-responsive"></figure>
+                <div class="con">
+                    <div class="brand-logo"><img src="upload/home_09.png" alt="" class="img-responsive"></div>
+                    <div class="btn-area"><span class="btn btn-white">瀏覽該品牌商品</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6 item">
+            <a href="product.html">
+                <figure class="useThumb"><img src="upload/home_06.jpg" alt="" class="img-responsive"></figure>
+                <div class="con">
+                    <div class="brand-logo"><img src="upload/home_09-2.png" alt="" class="img-responsive"></div>
+                    <div class="btn-area"><span class="btn btn-white">瀏覽該品牌商品</span></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<!--/home-category-->
+<div class="home-product container">
+    <div class="home-title">
+        <h3>近期特賣</h3>
+        <a href="product.html" class="more btn btn-gray">瀏覽所有產品</a>
+    </div>
+    <div class="list-product box-white row">
+    
+    <% temai.forEach(function(vo){  %>
+        <div class="item col-md-3">
+            <a href="product-detail.html">
+                <figure class="useThumb">
+                    <img src="<%= vo.over %>" alt="" class="img-responsive">
+                </figure>
+                <span><%= vo.name %></span>
+            </a>
+        </div>
+
+    <% }); %>
+        
+
+    </div>
+</div>
+<!--/home-product-->
+<div class="home-news">
+    <div class="container">
+        <div class="home-title"><h3>公司快訊</h3></div>
+        <ul class="top-news">
+           <% for(var i = 0 ;  i < news.length; i ++ ){ 
+                if(i<3){  %>
+                <li class="item">
+                    <a href="news-detail.html">
+                        <figure class="useThumb"><img src="<%= news[i].over %>" alt="" class="img-responsive"></figure>
+                        <span><%= news[i].title %></span>
+                    </a>
+                </li>
+
+                <% }
+            } %>
+
+            
+            
+        </ul>
+        <ul class="list">
+            <% for(var i = 0 ;  i < news.length; i ++ ){ 
+                if(i>=3){  %>
+                    <li><a href="news-detail.html"><%= news[i].title %></a></li>
+               <% }
+            } %>
+        </ul>
+    </div>
+</div>
+<!--/home-news-->
+<div class="home-link">
+    <div class="container">
+        <div class="title">友情鏈接</div>
+        <ul class="list">
+        <% uri.forEach(function(vo){ %>
+            <li><a target="_blank"  href="<%= vo.link %>"><img src="<%= vo.over %>" alt=""></a></li>
+        <%  }); %>
+        </ul>
+        <a href="links.html" class="more"><i class="icon icon-more"></i></a>
+    </div>
+</div>
+<!--/home-link-->
+
+<%- include common/footer %>

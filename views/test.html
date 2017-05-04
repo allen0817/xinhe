@@ -1,0 +1,12 @@
+test.html
+
+<hr>
+
+
+    <% data.forEach(function(vo){ %>
+    	<% var a = JSON.parse(vo);   %>
+    	姓名：<%= a.name %> ,
+    	性别：<%= a.sex %> ,
+    	地址：<%= a.address %>
+    	<br>
+	<% }); %>

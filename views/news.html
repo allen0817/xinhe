@@ -1,0 +1,43 @@
+<%- include common/header %>
+
+
+
+<div class="pape-title">
+    <h1 class="container">公司快訊</h1>
+</div>
+<!--/pape-title-->
+<div class="container">
+    <div class="news">
+
+    <% news.forEach(function(vo){ %>
+    	<div class="item">
+            <a href="/news_detail?id=<%= vo.id %>">
+                <figure class="useThumbs"><img src="<%= vo.over %>" alt="" class="img-responsive"></figure>
+                <div class="con">
+                    <h5><%= vo.title %></h5>
+                    <div class="date"><%= moment( vo.ctime * 1000).format('YYYY-MM-DD HH:mm:ss') %></div>
+                    <div class="info"><%= substr( vo.zeyao,100 ) %></div>
+                </div>
+            </a>
+        </div>
+
+	<% }); %>
+        
+
+    </div>
+    <!--/news-->
+    <ul class="pagination page-skip">
+        <!-- <li><a href="#">&lt;</a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">&gt;</a></li> -->
+
+        <%- include common/page %>
+    </ul>
+    <!--/page-skip-->
+</div>
+<!--/container-->
+
+
+<%- include common/footer %>

@@ -1,0 +1,56 @@
+server
+{
+    listen 127.0.0.1:80;
+    server_name www.xinhe.com;
+    location / {
+        proxy_redirect off;
+        #proxy_set_header Host $host:$server_port;
+		proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://127.0.0.1:3005; 
+    }
+    
+}
+ 
+server
+{
+    listen 127.0.0.1:80; 
+    server_name www.demo.com;
+    location / {
+        proxy_redirect off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://127.0.0.1:5000; 
+    }
+    #access_log logs/xxx456.tk_access.log;
+}
+
+
+#  win 下添加nginx 域名配置
+#  这个是我配置的，可以用的 
+#  1.首先在conf 下增加一下文件夹 vhosts 
+#  2.在这个vhosts 下增加一个文件，如www.xinhe.com.conf(即是你的域名后加一个.conf)，文件 内容如本文件内容
+#  3.在conf下的主配置里的最后增加一行 ：include      vhosts/*.conf; #加载多站点配置文件 
+#  4.最后一步，在win 下在 C:\Windows\System32\drivers\etc\hosts 最后增加 127.0.0.1 www.xinhe.com
+#  linux  在  /etc/hosts 下增加 127.0.0.1 www.xinhe.com
+  
+#  5.重启nginx 就可以了 
+#  start nignx , nginx.exe -s stop (win)
+
+
+这里我不会配置nginx , apache 共享80端口， 所以把apache 的端口配置成了82   Listen 82
+然后nginx 的配置 里
+ location ~ \.php$ {
+            proxy_pass   http://127.0.0.1:82;
+        }
+
+这样访问apache下的目录就要加这个82端口觉得不太好。（但是如果是有来做接口或后台的我觉得也是可以接受的）
+
+
+
+总结
+思路：用一门语言来写后台包括接口（如php）, 用node 来做渲染，最后把项目布署到 nginx 
+
+1.express 相对于比较复杂的逻辑最好不要用他来处理

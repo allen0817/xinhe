@@ -1,0 +1,50 @@
+<%- include common/header %>
+<div class="pape-title">
+    <h1 class="container">聯絡我們</h1>
+</div>
+<!--/pape-title-->
+<div class="container">
+    <div class="contact">
+        <div class="contact-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3693.774078605033!2d113.54153601545121!3d22.210690485370275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34017b194c2e4845%3A0x970f75ce87d5e73!2z5r6z6Zeo6Z2S5rSy5aSn6aas6LevMzQy6Jmf!5e0!3m2!1szh-CN!2s!4v1476343393089" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen>
+            </iframe>
+        </div>
+        <!--/contact-map-->
+        <form action="/add" method="post" id="concat_form">
+        <div class="contact-form">
+            <h3>給我們留言</h3>
+            <div class="row">
+                <div class="item col-md-4"><input type="text" name="name" class="txt" placeholder="姓名"></div>
+                <div class="item col-md-4"><input type="email" name="email" class="txt" placeholder="郵箱"></div>
+                <div class="item col-md-4"><input type="text" name="phone" class="txt" placeholder="電話"></div>
+                <div class="item col-md-12"><textarea name="contact" id="" cols="30" rows="10" placeholder="留言" class="txt txt-big"></textarea></div>
+                <div class="item btn-area row">
+                    <div class="col-md-6"><a href="javascript:;" class="btn btn-block btn-gray2" id="contact_sub">提交</a></div>
+                    <div class="col-md-6"><a href="javascript:;" class="btn btn-block btn-gray2" id="contact_reset">重置</a></div>
+                </div>
+            </div>
+        </div>
+        </form>
+        <!--/contact-form-->
+        
+        <div class="contact-info">
+        <h3>聯絡方式</h3>
+            <ul>
+                <li>
+                    <h5>新信和貿易行</h5>
+                    <p>電話：853 28234105</p>
+                    <p>傳真：853 28234105</p>
+                    <p>郵箱：<a href="mailto:sou_2003200@yahoo.com.hk">sou_2003200@yahoo.com.hk</a></p>
+                    <p>地址：青洲大馬路342號福德新邨福康樓地下C</p>
+                </li>
+            </ul>
+        </div>
+        
+        
+        <!--/contact-info-->
+    </div>
+    <!--/contact-->
+</div>
+<!--/container-->
+
+<%- include common/footer %>

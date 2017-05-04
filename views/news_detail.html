@@ -1,0 +1,23 @@
+<%- include  common/header %>
+<div class="pape-title">
+    <h1 class="container">公司快訊</h1>
+</div>
+<!--/pape-title-->
+<div class="container">
+    <div class="news-detail">
+        <div class="title">
+            <h2><%= data[0].title %></h2>
+            <div class="author">
+                <span>作者：<%= data[0].author %></span>
+                <span>發布日期：<%= moment( data[0].ctime * 1000).format('YYYY.MM.DD HH:mm:ss') %></span>
+            </div>
+        </div>
+        <div class="content">
+            <%- data[0].content %>
+        </div>
+    </div>
+    <!--/box-detail-->
+</div>
+<!--/container-->
+
+<%- include  common/footer %>
