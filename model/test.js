@@ -525,6 +525,10 @@ exports.test= function(req,res){
 
 
 	//tiems
+	// async.times(5,function(n,callback){  // 这个相当是for 
+	// 	console.log(n);
+	// })  
+
 	// var createUser = function(id, callback) {
 	//     callback(null, {
 	//         id: 'user' + id
@@ -557,24 +561,72 @@ exports.test= function(req,res){
 	//     } 
 	// );
 
-	var count = 0;
-	async.until(
-	    function (callback) {
-	    	console.log("a:"+count);
-	        //return callback(null, count < 5);
-	        return count < 5;
-	    },
-	    function (callback) {
-	        count++;
-	        console.log("b:"+count);
-	        //setTimeout(callback, 100);
-	        callback(count);
-	    },
-	    function (err) {
-	    	console.log(3);
-	        // 5 seconds have passed
-	    }
-	);
+
+//waterfall (串联运行，传递结果)
+//tasks串联运行函数数组，每个函数将其结果传递给数组中的下一个。但是，如果任何tasks一个错误传递给他们自己的回调，下一个函数不执行，并且main callback被立即调用与错误
+
+	// async.waterfall([
+	//     function(callback) {
+	//         callback(null, 'one', 'two');
+	//     },
+	//     function(arg1, arg2, callback) {
+	//         // arg1 now equals 'one' and arg2 now equals 'two'
+	//         callback(null, 'three');
+	//         console.log(arg1+'--'+arg2+'3');
+	//     },
+	//     function(arg1, callback) {
+	//         // arg1 now equals 'three'
+	//         callback(null, 'done');
+	//         console.log(arg1+'2');
+	//     }
+	// ], function (err, result) {
+	//     // result now equals 'done'
+	//     console.log(result+'1');
+	// });
+
+	// async.waterfall([
+	//     myFirstFunction,
+	//     mySecondFunction,
+	//     myLastFunction,
+	// ], function (err, result) {
+	//     // result now equals 'done'
+	//     console.log(5);
+	// });
+	// function myFirstFunction(callback) {
+	//     callback(null, 'one', 'two');
+	//     console.log(3);
+	// }
+	// function mySecondFunction(arg1, arg2, callback) {
+	//     // arg1 now equals 'one' and arg2 now equals 'two'
+	//     callback(null, 'three');
+	//     console.log(2);
+	// }
+	// function myLastFunction(arg1, callback) {
+	//     // arg1 now equals 'three'
+	//     callback(null, 'done');
+	//     console.log(1);
+	// }
+
+
+	//whilst 这个可以相当是其它语言的 while 吧，
+	//反复呼叫iteratee，同时test返回true。callback停止呼叫或发生错误
+	// var count = 0;
+	// async.whilst(
+	//     function() { return count < 5; },
+	//     function(callback) {
+	//     	console.log(count);
+	//         count++;
+	//         setTimeout(function() {
+	//             callback(null, count);
+	//         }, 1000);
+	//     },
+	//     function (err, n) {
+	//         // 5 seconds have passed, n = 5
+	//         console.log(n);
+	//     }
+	// );
+
+
 
 
 	res.status(200).send("hello world");
